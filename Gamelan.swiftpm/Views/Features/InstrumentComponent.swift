@@ -24,9 +24,9 @@ struct InstrumentComponent: View {
                 tappedInstrument += 1
             }
             
-            print(id)
+            print("current id \(id)")
             print(tappedInstrument)
-            print(ModelData())
+ //           print(ModelData())
             print(ModelData().instrumentsData[id])
 //            print(imageName)
 //            print($instrument)
@@ -127,8 +127,8 @@ struct InstrumentDetailInfoView: View {
                                         .fontWeight(.bold)
                                 }
                                 .padding(.leading, 15)
-                                
-                                HStack (alignment: .top) {
+                                .padding(.bottom, 30)
+                                HStack (alignment: .center) {
                                     //Image
                                     VStack {
                                         Image("\(instrument.imageDetail)")
@@ -139,40 +139,109 @@ struct InstrumentDetailInfoView: View {
                                     .padding(15)
                                     
                                     //Details
-                                    VStack (alignment: .leading) {
-                                        Text("Alias: \(instrument.alias)")
-                                            .font(.largeTitle)
-                                            .fontWeight(.semibold)
-                                            .padding(.bottom)
-                                        
-                                        Text("Role: \(instrument.role)")
-                                            .font(.largeTitle)
-                                            .fontWeight(.semibold)
-                                            .padding(.bottom)
-                                        
-                                        Text("Material: \(instrument.notationSymbol)")
-                                            .font(.largeTitle)
-                                            .fontWeight(.semibold)
-                                            .padding(.bottom)
-                                        
+                                    ScrollView(){
                                         VStack (alignment: .leading) {
-                                            Text("\(instrument.desc)")
-                                                .font(.largeTitle)
-                                                .fontWeight(.semibold)
-                                                .padding(.bottom)
+                                                
+                                            //alias
+                                            HStack (alignment: .top){
+                                                Text("Alias: ")
+                                                    .fontWeight(.semibold)
+
+                                                Text("\(instrument.alias)")
+                                                    .fontWeight(.semibold)
+                                                    .multilineTextAlignment(.leading)
+                                            }
+                                            .font(.system(size: 30))
+                                            .padding(.bottom)
+                                            
+                                            //role
+                                            HStack (alignment: .top){
+                                                Text("Role: ")
+                                                    .fontWeight(.semibold)
+
+                                                Text("\(instrument.role)")
+                                                    .fontWeight(.semibold)
+                                                    .multilineTextAlignment(.leading)
+                                            }
+                                            .font(.system(size: 30))
+                                            .padding(.bottom)
+                                            
+                                            //material
+                                            HStack (alignment: .top){
+                                                Text("Material: ")
+                                                    .fontWeight(.semibold)
+
+                                                Text("\(instrument.material)")
+                                                    .fontWeight(.semibold)
+                                                    .multilineTextAlignment(.leading)
+
+                                            }
+                                            .font(.system(size: 30))
+                                            .padding(.bottom)
+                                            
+                                            //form
+                                            HStack (alignment: .top){
+                                                Text("Form: ")
+                                                    .fontWeight(.semibold)
+
+                                                Text("\(instrument.form)")
+                                                    .fontWeight(.semibold)
+                                                    .multilineTextAlignment(.leading)
+
+                                            }
+                                            .font(.system(size: 30))
+                                            .padding(.bottom)
+                                            
+                                            //notation symbol
+                                            HStack (alignment: .center){
+                                                Text("Notation Symbol: ")
+                                                    .font(.system(size: 30))
+        //                                            .font(.largeTitle)
+                                                    .fontWeight(.semibold)
+                                                
+                                                if instrument.notationSymbol == "-" {
+                                                    Text("-")
+                                                        .font(.system(size: 30))
+            //                                            .font(.largeTitle)
+                                                        .fontWeight(.semibold)
+                                                        .padding(.bottom)
+                                                } else {
+                                                    Image("\(instrument.notationSymbol)")
+                                                        .resizable()
+                                                        .aspectRatio(contentMode: .fit)
+                                                        .frame(maxHeight: 20)
+                                                }
+                                            }
+                                            .padding(.bottom)
+                                            
+                                            //desc
+                                            HStack (alignment: .top){
+
+                                                Text("\(instrument.desc)")
+                                                    .fontWeight(.semibold)
+                                                    .multilineTextAlignment(.leading)
+
+                                            }
+                                            .font(.system(size: 30))
+                                            .padding(.bottom)
+                                            
                                         }
+                                        .frame(alignment: .leading)
+                                        .padding(30)
                                         
+                                        Spacer()
                                     }
-                                    .padding(.leading,  30)
+                                    .background(Color("myDarkBrown").opacity(0.05))
+                                    .cornerRadius(20)
                                     
-                                    Spacer()
                                 }
                             }
                             
                             
                         }
                         .padding(.vertical, 20)
-                        .padding([.horizontal, .bottom], 60)
+                        .padding([.horizontal], 60)
+                        .padding([.bottom], 30)
                         .frame(maxWidth: .infinity, maxHeight: .infinity)
                         .foregroundColor(Color("myDarkBrown"))
                         .background(Color.brown)
@@ -189,14 +258,14 @@ struct InstrumentDetailInfoView: View {
         
 }
 
-//struct InstrumentDetailInfoView_Previews: PreviewProvider {
-//    //observable object protocol
-//    static var instruments = ModelData().instrumentsData
-//
-//    static var previews: some View {
-//
-//        InstrumentDetailInfoView()
-//            .previewInterfaceOrientation(.landscapeLeft)
-//
-//    }
-//}
+struct InstrumentDetailInfoView_Previews: PreviewProvider {
+    //observable object protocol
+    static var instruments = ModelData().instrumentsData
+
+    static var previews: some View {
+
+        InstrumentDetailInfoView(id: 0)
+            .previewInterfaceOrientation(.landscapeLeft)
+
+    }
+}

@@ -27,7 +27,7 @@ struct ScratchGamePageView: View {
             .frame(maxWidth: .infinity, maxHeight: .infinity)
             .edgesIgnoringSafeArea(.all)
             
-            NavigationLink(destination: InstrumentsPageView(), isActive: $isDone) {
+            NavigationLink(destination: AboutGamelanView(), isActive: $isDone) {
             }
         }
         .background(Color("myDarkBrown"))

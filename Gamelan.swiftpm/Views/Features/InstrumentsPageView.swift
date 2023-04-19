@@ -12,6 +12,8 @@ struct InstrumentsPageView: View {
     @State private var tappedInstrument = 0
     @State private var instrument: Instrument!
     
+    @ObservedObject var modelData = ModelData()
+    
     //observable object
 //    @EnvironmentObject var modelData: ModelData
     
@@ -104,18 +106,17 @@ struct InstrumentsPageView: View {
                             .aspectRatio(contentMode: .fit)
                             .foregroundColor(Color("myBrown"))
                             .opacity(1)
-
+                            .frame(width: 80, height: 80)
                     }
                     .buttonStyle(.plain)
-                    .frame(width: 50, height: 50)
-                    .padding(.top)
+                    .padding(.top, 10)
                 }
 
 
             }
             .padding([.horizontal], 50)
-            .padding([.bottom], 30)
-            .padding(.top, 10)
+            .padding(.top, 20)
+            .padding(.bottom, 10)
 
         }
 //        .onAppear{

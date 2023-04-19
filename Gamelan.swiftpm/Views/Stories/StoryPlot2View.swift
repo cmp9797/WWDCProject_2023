@@ -25,19 +25,21 @@ struct StoryPlot2View: View {
                 
                 Spacer()
 
-                NavigationLink(destination: StoryEpilogue1View()){
+                NavigationLink(destination: InstrumentsPageView()){
                     Image(systemName: "arrowshape.forward.fill")
                         .resizable()
                         .aspectRatio(contentMode: .fit)
                         .foregroundColor(Color("myBrown"))
                         .opacity(1)
+                        .frame(width: 80, height: 80)
 
                 }
                 .buttonStyle(.plain)
-                .frame(width: 50, height: 50)
+                .padding(.top, 10)
 
             }
-            .padding(50)
+            .padding([.horizontal, .top], 50)
+            .padding(.bottom, 10)
 
         }
         .frame(maxWidth: .infinity)
@@ -49,7 +51,8 @@ struct StoryPlot2View: View {
 
 struct StoryClimaxTwoPage_Previews: PreviewProvider {
     static var previews: some View {
-        StoryPlot2View()            .previewInterfaceOrientation(.landscapeLeft)
+        StoryPlot2View()
+            .previewInterfaceOrientation(.landscapeLeft)
 
     }
 }

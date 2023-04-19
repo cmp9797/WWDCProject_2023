@@ -30,13 +30,15 @@ struct StoryIntroView: View {
                         .aspectRatio(contentMode: .fit)
                         .foregroundColor(Color("myBrown"))
                         .opacity(1)
+                        .frame(width: 80, height: 80)
 
                 }
                 .buttonStyle(.plain)
-                .frame(width: 50, height: 50)
+                .padding(.top, 10)
 
             }
-            .padding(50)
+            .padding([.horizontal, .top], 50)
+            .padding(.bottom, 10)
 
         }
         .frame(maxWidth: .infinity)
