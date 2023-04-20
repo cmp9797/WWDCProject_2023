@@ -10,15 +10,10 @@ import SwiftUI
 struct InstrumentsPageView: View {
     @State private var isPresented = false
     @State private var tappedInstrument = 0
-    @State private var instrument: Instrument!
-    
-    @ObservedObject var modelData = ModelData()
-    
-    //observable object
-//    @EnvironmentObject var modelData: ModelData
+    @State private var instrument: Instrument = ModelData().instrumentsData[0]
     
     var body: some View {
-        
+       
         ZStack(alignment: .bottomTrailing) {
             VStack (alignment: .trailing){
                 VStack {
@@ -28,7 +23,9 @@ struct InstrumentsPageView: View {
                         Spacer()
 
                         //intstrument: kenong
-                        InstrumentComponent(tappedInstrument: $tappedInstrument, isPresented: $isPresented, id: 8)
+                        VStack {
+                            InstrumentComponent(tappedInstrument: $tappedInstrument, isPresented: $isPresented, instrument: $instrument, id: 8)
+                        }
 
                         Spacer()
 
@@ -36,7 +33,9 @@ struct InstrumentsPageView: View {
 
                             HStack {
                                 //intstrument: gong
-                                InstrumentComponent(tappedInstrument: $tappedInstrument, isPresented: $isPresented, id: 11)
+                                VStack {
+                                    InstrumentComponent(tappedInstrument: $tappedInstrument, isPresented: $isPresented, instrument: $instrument, id: 11)
+                                }
                             }
                             HStack {
                                 Spacer()
@@ -48,7 +47,9 @@ struct InstrumentsPageView: View {
                                     .aspectRatio(contentMode: .fit)
 
                                 //intstrument: kendang
-                                InstrumentComponent(tappedInstrument: $tappedInstrument, isPresented: $isPresented, id: 6)
+                                VStack {
+                                    InstrumentComponent(tappedInstrument: $tappedInstrument, isPresented: $isPresented, instrument: $instrument, id: 6)
+                                }
 
                             }
                         }
@@ -62,22 +63,30 @@ struct InstrumentsPageView: View {
 
                     HStack {
                         //intstrument: saronPenerus
-                        InstrumentComponent(tappedInstrument: $tappedInstrument, isPresented: $isPresented, id: 3)
+                        VStack {
+                            InstrumentComponent(tappedInstrument: $tappedInstrument, isPresented: $isPresented, instrument: $instrument, id: 3)
+                        }
 
                         Spacer()
 
                         //intstrument: saronBarung
-                        InstrumentComponent(tappedInstrument: $tappedInstrument, isPresented: $isPresented, id: 2)
+                        VStack {
+                            InstrumentComponent(tappedInstrument: $tappedInstrument, isPresented: $isPresented, instrument: $instrument, id: 2)
+                        }
 
                         Spacer()
 
                         //intstrument: demung
-                        InstrumentComponent(tappedInstrument: $tappedInstrument, isPresented: $isPresented, id: 4)
+                        VStack {
+                            InstrumentComponent(tappedInstrument: $tappedInstrument, isPresented: $isPresented, instrument: $instrument, id: 4)
+                        }
 
                         Spacer()
 
                         //intstrument: slenthem
-                        InstrumentComponent(tappedInstrument: $tappedInstrument, isPresented: $isPresented, id: 5)
+                        VStack {
+                            InstrumentComponent(tappedInstrument: $tappedInstrument, isPresented: $isPresented, instrument: $instrument, id: 5)
+                        }
                     }
 
                     Spacer()
@@ -85,12 +94,16 @@ struct InstrumentsPageView: View {
 
                     HStack {
                         //intstrument: bonangBarung
-                        InstrumentComponent(tappedInstrument: $tappedInstrument, isPresented: $isPresented, id: 0)
+                        VStack {
+                            InstrumentComponent(tappedInstrument: $tappedInstrument, isPresented: $isPresented, instrument: $instrument, id: 0)
+                        }
 
                         Spacer()
 
                         //intstrument: bonangPenerus
-                        InstrumentComponent(tappedInstrument: $tappedInstrument, isPresented: $isPresented, id: 1)
+                        VStack {
+                            InstrumentComponent(tappedInstrument: $tappedInstrument, isPresented: $isPresented, instrument: $instrument, id: 1)
+                        }
                     }
                     .frame(maxHeight: 150)
 
@@ -106,7 +119,7 @@ struct InstrumentsPageView: View {
                             .aspectRatio(contentMode: .fit)
                             .foregroundColor(Color("myBrown"))
                             .opacity(1)
-                            .frame(width: 80, height: 80)
+                            .frame(width: 70, height: 70)
                     }
                     .buttonStyle(.plain)
                     .padding(.top, 10)
@@ -115,8 +128,8 @@ struct InstrumentsPageView: View {
 
             }
             .padding([.horizontal], 50)
-            .padding(.top, 20)
-            .padding(.bottom, 10)
+            .padding(.top, 10)
+            .padding(.bottom, 20)
 
         }
 //        .onAppear{

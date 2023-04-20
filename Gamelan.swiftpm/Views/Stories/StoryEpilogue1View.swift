@@ -17,12 +17,17 @@ struct StoryEpilogue1View: View {
 //                .scaledToFill()
 //                .edgesIgnoringSafeArea(.all)
             VStack (alignment: .trailing){
-                Spacer()
-
-                VStack {
-                    Text("Wow, we're backk!! We realize that Indonesia have such a wonderful musical instruments! Can't wait to get back there and try to play it!")
-                        .font(.title)
+                VStack (alignment: .center){
+                    Image("story-epilog1")
+                        .resizable()
+                        .scaledToFit()
+                    VStack (alignment: .leading){
+                        Text("Wow, we're backk!! We realize that Indonesia have such a wonderful musical instruments! Can't wait to get back there and try to play it!")
+                            .font(.title)
+                    }
                 }
+
+                
                 
                 Spacer()
 
@@ -32,7 +37,7 @@ struct StoryEpilogue1View: View {
                         .aspectRatio(contentMode: .fit)
                         .foregroundColor(Color("myBrown"))
                         .opacity(1)
-                        .frame(width: 80, height: 80)
+                        .frame(width: 70, height: 70)
 
                 }
                 .buttonStyle(.plain)
@@ -40,7 +45,7 @@ struct StoryEpilogue1View: View {
 
             }
             .padding([.horizontal, .top], 50)
-            .padding(.bottom, 10)
+            .padding(.bottom, 20)
 
         }
         .frame(maxWidth: .infinity)

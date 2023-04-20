@@ -20,15 +20,6 @@ struct Instrument: Identifiable, Codable, Hashable {
 
     var imageBtn: String = ""
     var imageDetail: String = ""
-    
-    
-//    var name = ""
-//    var alias = ""
-//    var role = ""
-//    var form = ""
-//    var material = ""
-//    var notationSymbol = ""
-//    var desc = ""
 }
 
 //Codable -> interact w/ json

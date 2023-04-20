@@ -10,16 +10,18 @@ import SwiftUI
 struct StoryIntroView: View {
     var body: some View {
         ZStack(alignment: .bottomTrailing) {
-//            Image("intro")
-//                .resizable()
-//                .scaledToFill()
-//                .edgesIgnoringSafeArea(.all)
+            
             VStack (alignment: .trailing){
-                Spacer()
-
-                VStack {
-                    Text("Hello, Pelog's here! This is my lil bro called Slendro. Here we are together not doing anything in class... Slendro asked me to play magic coin scratch book that can show the hidden image by scratching the paper using a coin, so let’s play together!")
-                        .font(.title)
+                
+                VStack (alignment: .center){
+                    Image("story-intro")
+                        .resizable()
+                        .scaledToFit()
+                    
+                    VStack (alignment: .leading) {
+                        Text("Hello, Pelog's here! This is my lil bro called Slendro. Slendro asked me to play magic coin scratch book that can show the hidden image, so let’s play together!")
+                            .font(.title)
+                    }
                 }
                 
                 Spacer()
@@ -30,7 +32,7 @@ struct StoryIntroView: View {
                         .aspectRatio(contentMode: .fit)
                         .foregroundColor(Color("myBrown"))
                         .opacity(1)
-                        .frame(width: 80, height: 80)
+                        .frame(width: 70, height: 70)
 
                 }
                 .buttonStyle(.plain)
@@ -38,7 +40,7 @@ struct StoryIntroView: View {
 
             }
             .padding([.horizontal, .top], 50)
-            .padding(.bottom, 10)
+            .padding(.bottom, 20)
 
         }
         .frame(maxWidth: .infinity)

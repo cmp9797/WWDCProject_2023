@@ -11,7 +11,7 @@ struct StoryEpilogue2View: View {
     
     //pop navigation view
 //    @Environment(\.presentationMode) var mode: Binding<PresentationMode>
-    @Environment(\.dismiss) var dismiss
+//    @Environment(\.dismiss) var dismiss
 
     var body: some View {
         ZStack(alignment: .bottomTrailing) {
@@ -20,32 +20,50 @@ struct StoryEpilogue2View: View {
 //                .scaledToFill()
 //                .edgesIgnoringSafeArea(.all)
             VStack (alignment: .trailing){
-                Spacer()
-
-                VStack {
-                    Text("Oh no.. It’s time to go home now.. Thanks for being through in our journey! See you soon!")
-                        .font(.title)
+                VStack (alignment: .center){
+                    Image("story-intro")
+                        .resizable()
+                        .scaledToFit()
+                    
+                    VStack (alignment: .leading){
+                        Text("Oh no.. It’s time to go home now.. Thanks for being through in our journey! See you soon!")
+                            .font(.title)
+                    }
                 }
-                
+
                 Spacer()
             
-                Button {
-                    dismiss()
-                } label: {
+                NavigationLink(destination: MainMenuView()){
                     Image(systemName: "house.fill")
                         .resizable()
                         .aspectRatio(contentMode: .fit)
                         .foregroundColor(Color("myBrown"))
                         .opacity(1)
-                        .frame(width: 80, height: 80)
-                    
+                        .frame(width: 70, height: 70)
+
                 }
                 .buttonStyle(.plain)
                 .padding(.top, 10)
+                
+//                Button {
+////                    dismiss()
+//                    UIApplication.shared.windows.first?.rootViewController?.dismiss(animated: true, completion: nil)
+//
+//                } label: {
+//                    Image(systemName: "house.fill")
+//                        .resizable()
+//                        .aspectRatio(contentMode: .fit)
+//                        .foregroundColor(Color("myBrown"))
+//                        .opacity(1)
+//                        .frame(width: 70, height: 70)
+//
+//                }
+//                .buttonStyle(.plain)
+//                .padding(.top, 10)
 
             }
             .padding([.horizontal, .top], 50)
-            .padding(.bottom, 10)
+            .padding(.bottom, 20)
 
         }
         .frame(maxWidth: .infinity)

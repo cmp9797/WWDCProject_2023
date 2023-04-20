@@ -18,20 +18,26 @@ struct StoryPlot2View: View {
             VStack (alignment: .trailing){
                 Spacer()
 
-                VStack {
-                    Text("“Welcome to the Symphony of Gamelan”.. Looks like we are in Gamelan's World now.  But, how to get back to our world? Hmm, let's just follow the path and visit them one by one then..")
-                        .font(.title)
+                VStack (alignment: .center){
+                    Image("story-plot")
+                        .resizable()
+                        .scaledToFit()
+                    
+                    VStack (alignment: .leading){
+                        Text("“Welcome to the Symphony of Gamelan”.. Looks like we are in Gamelan's World now.  But, how to get back to our world? Hmm, let's just walk along the path...")
+                            .font(.title)
+                    }
                 }
                 
                 Spacer()
 
-                NavigationLink(destination: InstrumentsPageView()){
+                NavigationLink(destination: AboutGamelanView()){
                     Image(systemName: "arrowshape.forward.fill")
                         .resizable()
                         .aspectRatio(contentMode: .fit)
                         .foregroundColor(Color("myBrown"))
                         .opacity(1)
-                        .frame(width: 80, height: 80)
+                        .frame(width: 70, height: 70)
 
                 }
                 .buttonStyle(.plain)
@@ -39,7 +45,7 @@ struct StoryPlot2View: View {
 
             }
             .padding([.horizontal, .top], 50)
-            .padding(.bottom, 10)
+            .padding(.bottom, 20)
 
         }
         .frame(maxWidth: .infinity)

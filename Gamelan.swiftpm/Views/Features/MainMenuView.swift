@@ -53,13 +53,24 @@ struct MainMenuView: View {
                             .hoverEffect(.lift)
                         
                     }
+                    
+                    VStack (alignment: .center) {
+                        Text("by Celine Margaretha Pranoto")
+                            .fontWeight(.semibold)
+                            .foregroundColor(Color("myDarkBrown"))
+                    }
+                    .frame(maxWidth: .infinity)
+                    
                 }
                 .padding([.top], 30)
-                .padding([.bottom, .trailing], 70)
+                .padding([.bottom, .trailing], 50)
+                
+                
             }
 
         }
         .navigationViewStyle(.stack)
+        .navigationBarBackButtonHidden()
         
        
     }

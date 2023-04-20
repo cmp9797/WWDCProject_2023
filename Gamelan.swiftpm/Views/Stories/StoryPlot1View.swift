@@ -18,10 +18,16 @@ struct StoryPlot1View: View {
             VStack (alignment: .trailing){
                 Spacer()
 
-                VStack {
-                    Text("Where are we??!! Why everything is all black and white? Why everything we passed through become colored? That’s strange…")
-                        .font(.title)
+                VStack (alignment: .center){
+                    Image("story-plot")
+                        .resizable()
+                        .scaledToFit()
+                    VStack (alignment: .leading){
+                        Text("Where are we??!! Why everything is all black and white? But when we passed it through, it becomes colored.?? That’s strange…")
+                            .font(.title)
+                    }
                 }
+                
                 
                 Spacer()
 
@@ -31,7 +37,7 @@ struct StoryPlot1View: View {
                         .aspectRatio(contentMode: .fit)
                         .foregroundColor(Color("myBrown"))
                         .opacity(1)
-                        .frame(width: 80, height: 80)
+                        .frame(width: 70, height: 70)
 
                 }
                 .buttonStyle(.plain)
@@ -39,7 +45,7 @@ struct StoryPlot1View: View {
 
             }
             .padding([.horizontal, .top], 50)
-            .padding(.bottom, 10)
+            .padding(.bottom, 20)
 
         }
         .frame(maxWidth: .infinity)
